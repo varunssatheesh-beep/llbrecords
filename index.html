@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LLB Records Guide | Varun Satheesh | Mar Gregorios College of Law</title>
+  <meta name="description" content="Complete guide for Moot Court Observation, Court Work, Client Interview and Pre-Trial Preparations record by Varun Satheesh, Mar Gregorios College of Law." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0c14;
+      --bg2: #0f1220;
+      --bg3: #141828;
+      --card: #161b2e;
+      --card2: #1c2240;
+      --border: rgba(255,255,255,0.07);
+      --border2: rgba(255,255,255,0.12);
+      --gold: #c9a84c;
+      --gold2: #f0c96c;
+      --gold-glow: rgba(201,168,76,0.15);
+      --blue: #4f8ef7;
+      --blue2: #7aadff;
+      --blue-glow: rgba(79,142,247,0.15);
+      --crimson: #e05a6d;
+      --crimson2: #f07a8a;
+      --crimson-glow: rgba(224,90,109,0.15);
+      --emerald: #3fbf82;
+      --emerald2: #62daa0;
+      --emerald-glow: rgba(63,191,130,0.15);
+      --text: #e8eaf2;
+      --text2: #9ba3c0;
+      --text3: #636b8a;
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Animated background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% 10%, rgba(79,142,247,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(201,168,76,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 50% 50%, rgba(224,90,109,0.04) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ====== HEADER ====== */
+    header {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 80px 24px 60px;
+      overflow: hidden;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 40px;
+      padding: 6px 18px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold2);
+      margin-bottom: 28px;
+    }
+
+    .header-badge span { font-size: 16px; }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    header h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header-sub {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 20px;
+    }
+
+    .header-desc {
+      max-width: 640px;
+      margin: 0 auto 40px;
+      font-size: 16px;
+      color: var(--text2);
+      line-height: 1.7;
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 0;
+    }
+
+    .stat-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: 40px;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .stat-pill .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .dot-gold { background: var(--gold2); box-shadow: 0 0 6px var(--gold2); }
+    .dot-blue { background: var(--blue2); box-shadow: 0 0 6px var(--blue2); }
+    .dot-red { background: var(--crimson2); box-shadow: 0 0 6px var(--crimson2); }
+
+    /* ====== SECTION NAV ====== */
+    .section-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 24px;
+      background: rgba(10, 12, 20, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-btn {
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border2);
+      background: transparent;
+      color: var(--text2);
+      transition: all 0.25s ease;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .nav-btn.active-gold { background: rgba(201,168,76,0.15); border-color: var(--gold); color: var(--gold2); }
+    .nav-btn.active-blue { background: rgba(79,142,247,0.15); border-color: var(--blue); color: var(--blue2); }
+    .nav-btn.active-red { background: rgba(224,90,109,0.15); border-color: var(--crimson); color: var(--crimson2); }
+
+    /* ====== MAIN LAYOUT ====== */
+    main {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+
+    /* ====== SECTION HEADER ====== */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .icon-gold { background: var(--gold-glow); border: 1px solid rgba(201,168,76,0.3); }
+    .icon-blue { background: var(--blue-glow); border: 1px solid rgba(79,142,247,0.3); }
+    .icon-red { background: var(--crimson-glow); border: 1px solid rgba(224,90,109,0.3); }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .section-header p {
+      font-size: 13px;
+      color: var(--text3);
+      margin-top: 4px;
+    }
+
+    .part-label {
+      margin-left: auto;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      flex-shrink: 0;
+    }
+
+    .label-gold { background: var(--gold-glow); color: var(--gold2); border: 1px solid rgba(201,168,76,0.25); }
+    .label-blue { background: var(--blue-glow); color: var(--blue2); border: 1px solid rgba(79,142,247,0.25); }
+    .label-red { background: var(--crimson-glow); color: var(--crimson2); border: 1px solid rgba(224,90,109,0.25); }
+
+    /* ====== SECTION WRAPPER ====== */
+    .section-wrapper {
+      margin-bottom: 80px;
+    }
+
+    /* ====== CARDS GRID ====== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      cursor: default;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+
+    .card.gold:hover { border-color: rgba(201,168,76,0.4); box-shadow: 0 12px 40px rgba(201,168,76,0.08); }
+    .card.blue:hover { border-color: rgba(79,142,247,0.4); box-shadow: 0 12px 40px rgba(79,142,247,0.08); }
+    .card.red:hover { border-color: rgba(224,90,109,0.4); box-shadow: 0 12px 40px rgba(224,90,109,0.08); }
+
+    .card-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .tag-gold { color: var(--gold); }
+    .tag-blue { color: var(--blue2); }
+    .tag-red { color: var(--crimson2); }
+    .tag-emerald { color: var(--emerald2); }
+
+    .card h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .card p {
+      font-size: 13.5px;
+      color: var(--text2);
+      line-height: 1.65;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text3);
+    }
+
+    /* ====== DOCUMENT LIST ====== */
+    .doc-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .doc-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+    }
+
+    .doc-section-header:hover { background: rgba(255,255,255,0.03); }
+
+    .doc-section-header h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .doc-count {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .count-gold { background: var(--gold-glow); color: var(--gold2); }
+    .count-red { background: var(--crimson-glow); color: var(--crimson2); }
+    .count-blue { background: var(--blue-glow); color: var(--blue2); }
+
+    .chevron {
+      font-size: 18px;
+      color: var(--text3);
+      transition: transform 0.3s ease;
+    }
+
+    .doc-section.open .chevron { transform: rotate(180deg); }
+
+    .doc-list {
+      display: none;
+      padding: 0 24px 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .doc-section.open .doc-list { display: block; }
+
+    .doc-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      animation: fadeSlide 0.2s ease forwards;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .doc-item:last-child { border-bottom: none; }
+
+    .doc-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .num-gold { background: var(--gold-glow); color: var(--gold2); }
+    .num-red { background: var(--crimson-glow); color: var(--crimson2); }
+
+    .doc-name {
+      flex: 1;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .doc-tip {
+      font-size: 11.5px;
+      color: var(--text3);
+      text-align: right;
+    }
+
+    /* ====== INFO BOXES ====== */
+    .info-box {
+      display: flex;
+      gap: 14px;
+      padding: 18px 20px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 16px;
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+
+    .info-box .icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .info-box strong { font-weight: 600; }
+
+    .info-gold { background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.2); color: #c8b87a; }
+    .info-blue { background: rgba(79,142,247,0.08); border: 1px solid rgba(79,142,247,0.2); color: #8ab4f8; }
+    .info-red { background: rgba(224,90,109,0.08); border: 1px solid rgba(224,90,109,0.2); color: #e89faa; }
+    .info-emerald { background: rgba(63,191,130,0.08); border: 1px solid rgba(63,191,130,0.2); color: #7adcb0; }
+
+    /* ====== MOOT TABLE ====== */
+    .moot-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+
+    .moot-table th {
+      text-align: left;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text3);
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .moot-table td {
+      padding: 12px 14px;
+      font-size: 13.5px;
+      color: var(--text2);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .moot-table tr:last-child td { border-bottom: none; }
+    .moot-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+    .moot-table td:first-child { color: var(--text); font-weight: 500; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .badge-gold { background: var(--gold-glow); color: var(--gold2); }
+    .badge-blue { background: var(--blue-glow); color: var(--blue2); }
+    .badge-red { background: var(--crimson-glow); color: var(--crimson2); }
+    .badge-green { background: var(--emerald-glow); color: var(--emerald2); }
+    .badge-purple { background: rgba(160,100,240,0.12); color: #b890f0; }
+
+    /* ====== DAY STRUCTURE ====== */
+    .structure-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .structure-box h3 {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #fff;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .step-list { list-style: none; }
+
+    .step-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13.5px;
+      color: var(--text2);
+    }
+
+    .step-list li:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .step-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .dot-blue2 { background: var(--blue2); box-shadow: 0 0 6px var(--blue2); }
+    .dot-gold2 { background: var(--gold2); box-shadow: 0 0 6px var(--gold2); }
+    .dot-red2 { background: var(--crimson2); box-shadow: 0 0 6px var(--crimson2); }
+    .dot-green2 { background: var(--emerald2); box-shadow: 0 0 6px var(--emerald2); }
+
+    strong.hl { font-weight: 600; color: var(--text); }
+
+    /* ====== DIVIDER ====== */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border2), transparent);
+      margin: 40px 0;
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--text3);
+      font-size: 13px;
+    }
+
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ====== AUTHOR NAMEPLATE ====== */
+    .author-nameplate {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.05));
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 60px;
+      padding: 10px 22px 10px 10px;
+      margin-bottom: 28px;
+      backdrop-filter: blur(10px);
+    }
+
+    .author-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      color: #0a0c14;
+      flex-shrink: 0;
+      letter-spacing: 0.5px;
+    }
+
+    .author-info { text-align: left; }
+
+    .author-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gold2);
+      letter-spacing: 0.2px;
+      line-height: 1.2;
+    }
+
+    .author-college {
+      font-size: 12px;
+      color: var(--text3);
+      margin-top: 2px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 600px) {
+      header { padding: 60px 20px 40px; }
+      .section-nav { gap: 6px; padding: 12px 16px; }
+      .nav-btn { padding: 7px 14px; font-size: 12px; }
+      .section-header { flex-wrap: wrap; gap: 12px; }
+      .part-label { margin-left: 0; }
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Scroll animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-badge"><span>⚖️</span> LLB Records Completion Guide</div>
+  <div class="author-nameplate">
+    <div class="author-avatar">VS</div>
+    <div class="author-info">
+      <div class="author-name">Varun Satheesh</div>
+      <div class="author-college">Mar Gregorios College of Law &nbsp;·&nbsp; 5th Year</div>
+    </div>
+  </div>
+  <h1>Moot Court, Court Work &<br/><em>Pre-Trial Preparation</em></h1>
+  <p class="header-desc">
+    A complete breakdown of everything that needs to be done to finish our records — structured by component so nothing gets missed.
+  </p>
+  <div class="stats-bar">
+    <div class="stat-pill"><div class="dot dot-gold"></div> Part 1: Moot Court</div>
+    <div class="stat-pill"><div class="dot dot-blue"></div> Part 2: Court Work</div>
+    <div class="stat-pill"><div class="dot dot-red"></div> Part 3: Client Interview & Pre-Trial</div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="section-nav" id="top-nav">
+  <button class="nav-btn" onclick="scrollTo('moot')">⚖️ Moot Court</button>
+  <button class="nav-btn" onclick="scrollTo('courtwork')">🏛️ Court Work</button>
+  <button class="nav-btn" onclick="scrollTo('client')">📋 Client Interview & Pre-Trial</button>
+</nav>
+
+<!-- MAIN -->
+<main>
+
+  <!-- ==================== PART 1: MOOT COURT ==================== -->
+  <section class="section-wrapper reveal" id="moot">
+    <div class="section-header">
+      <div class="section-icon icon-gold">⚖️</div>
+      <div>
+        <h2>Moot Court</h2>
+        <p>Reports for moots participated and observed</p>
+      </div>
+      <div class="part-label label-gold">Part 1 of 3</div>
+    </div>
+
+    <!-- Info box -->
+    <div class="info-box info-gold">
+      <div class="icon">📌</div>
+      <div><strong>Total moots to cover:</strong> 2 Detailed Participated Moots + 1 Judgement Moot + ~17–18 Observed Moots using FIRAC (excluding Rules). Each observed moot = 4–6 pages.</div>
+    </div>
+
+    <!-- Table of all moot types -->
+    <div class="structure-box reveal">
+      <h3>📊 Moot Report Types & Requirements</h3>
+      <table class="moot-table">
+        <thead>
+          <tr>
+            <th>Moot</th>
+            <th>Type of Report</th>
+            <th>Length</th>
+            <th>Format</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>9th Semester Moot</td>
+            <td><span class="badge badge-gold">Participated</span></td>
+            <td>~8 pages</td>
+            <td>Detailed full report</td>
+          </tr>
+          <tr>
+            <td>10th Semester Moot</td>
+            <td><span class="badge badge-gold">Participated</span></td>
+            <td>~8 pages</td>
+            <td>Detailed full report</td>
+          </tr>
+          <tr>
+            <td>Latest Judged Moot</td>
+            <td><span class="badge badge-purple">Judged</span></td>
+            <td>~8 pages</td>
+            <td>Written as a Judgement</td>
+          </tr>
+          <tr>
+            <td>17–18 Observed Moots</td>
+            <td><span class="badge badge-blue">Observed</span></td>
+            <td>4–6 pages each</td>
+            <td>FIRAC method (no Rules section) + Arguments of both sides</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FIRAC explanation -->
+    <div class="cards-grid reveal">
+      <div class="card gold">
+        <div class="card-tag tag-gold">📄 Detailed Moot Report (8 pages)</div>
+        <h3>9th & 10th Semester Moots</h3>
+        <p>Write a full detailed report of each moot you participated in. Include the problem, your arguments, counter-arguments, questions from judges, and outcome. <strong style="color:var(--text)">~8 pages each.</strong></p>
+        <div class="card-meta">✍️ 2 reports × 8 pages = ~16 pages</div>
+      </div>
+      <div class="card gold">
+        <div class="card-tag tag-gold">⚖️ Judgement Format (8 pages)</div>
+        <h3>Latest Judged Moot</h3>
+        <p>Write this moot <strong style="color:var(--text)">as a Judgement</strong> — with facts, issues raised, arguments from both petitioner and respondent, and the final decision/ruling.</p>
+        <div class="card-meta">⚖️ 1 judgement = ~8 pages</div>
+      </div>
+      <div class="card gold">
+        <div class="card-tag tag-gold">🔍 FIRAC Method (4–6 pages)</div>
+        <h3>17–18 Observed Moots</h3>
+        <p>Use <strong style="color:var(--text)">FIRAC</strong> format — <em>Facts, Issues, Arguments (both sides), Conclusion</em>. Skip the Rules section. Include arguments of Petitioner and Respondent clearly.</p>
+        <div class="card-meta">📝 ~18 moots × 5 pages = ~90 pages</div>
+      </div>
+    </div>
+
+    <div class="info-box info-emerald reveal">
+      <div class="icon">💡</div>
+      <div><strong>FIRAC for Observed Moots:</strong> <strong>F</strong>acts → <strong>I</strong>ssues → <strong>A</strong>rguments (Petitioner side + Respondent side) → <strong>C</strong>onclusion. <em>Skip the "Rules" section.</em> Each moot should cover 4–6 pages.</div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ==================== PART 2: COURT WORK ==================== -->
+  <section class="section-wrapper reveal" id="courtwork">
+    <div class="section-header">
+      <div class="section-icon icon-blue">🏛️</div>
+      <div>
+        <h2>Court Work</h2>
+        <p>Day-wise observation records + 2 full trial reports</p>
+      </div>
+      <div class="part-label label-blue">Part 2 of 3</div>
+    </div>
+
+    <div class="info-box info-blue reveal">
+      <div class="icon">📌</div>
+      <div><strong>Total: 15 days</strong> of court observation (each day = up to 4 pages) + <strong>2 full trial reports</strong> (1 Civil + 1 Criminal).</div>
+    </div>
+
+    <!-- Day-wise format -->
+    <div class="structure-box reveal">
+      <h3>📅 Day-wise Format — What to Write Each Day</h3>
+      <ul class="step-list">
+        <li><div class="step-dot dot-blue2"></div><div><strong class="hl">Name of the Court</strong> — e.g., District Court, Family Court, Magistrate Court, etc.</div></li>
+        <li><div class="step-dot dot-blue2"></div><div><strong class="hl">Number of Cases Observed</strong> — total count of cases heard that day.</div></li>
+        <li><div class="step-dot dot-blue2"></div><div><strong class="hl">Name of the Presiding Officer</strong> — Judge / Magistrate's name and designation.</div></li>
+        <li><div class="step-dot dot-blue2"></div><div><strong class="hl">Court's Jurisdiction</strong> — territorial and subject matter jurisdiction of that court.</div></li>
+        <li><div class="step-dot dot-blue2"></div><div><strong class="hl">3 Main Cases Elaborated</strong> — pick 3 cases and describe the procedures observed in detail (parties, nature of case, hearing stage, what happened).</div></li>
+      </ul>
+    </div>
+
+    <div class="cards-grid reveal">
+      <div class="card blue">
+        <div class="card-tag tag-blue">📆 Day-wise Observation</div>
+        <h3>15 Days × 4 Pages Each</h3>
+        <p>For each of your 15 visit days, follow the fixed format above. Elaborate on 3 key cases per day with procedural details.</p>
+        <div class="card-meta">📄 Total: ~60 pages for day-wise section</div>
+      </div>
+      <div class="card blue">
+        <div class="card-tag tag-blue">⚖️ Civil Trial — Full Report</div>
+        <h3>One Full Civil Trial</h3>
+        <p>Write a complete report of one civil case you observed — from filing stage to the point it had reached on your date of visit. Include all procedures, hearings, documents filed, and orders passed.</p>
+        <div class="card-meta">📝 Up to date of your visit</div>
+      </div>
+      <div class="card blue">
+        <div class="card-tag tag-blue">🔒 Criminal Trial — Full Report</div>
+        <h3>One Full Criminal Trial</h3>
+        <p>Write a complete report of one criminal case observed — from FIR / complaint stage to the point it had reached on your date of visit.</p>
+        <div class="card-meta">📝 Up to date of your visit</div>
+      </div>
+    </div>
+
+    <div class="info-box info-blue reveal">
+      <div class="icon">⚠️</div>
+      <div><strong>Important:</strong> The 2 full trial reports (Civil + Criminal) are <em>separate</em> from the day-wise entries. They should cover the full timeline of the case up to the date you visited.</div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ==================== PART 3: CLIENT INTERVIEW & PRE-TRIAL ==================== -->
+  <section class="section-wrapper reveal" id="client">
+    <div class="section-header">
+      <div class="section-icon icon-red">📋</div>
+      <div>
+        <h2>Client Interview &amp; Pre-Trial Preparation</h2>
+        <p>Interviews + civil and criminal documents</p>
+      </div>
+      <div class="part-label label-red">Part 3 of 3</div>
+    </div>
+
+    <div class="info-box info-red reveal">
+      <div class="icon">📌</div>
+      <div><strong>Start with:</strong> 1 Civil Client Interview + 1 Criminal Client Interview. Then write all documents listed below in order. Collect originals from an advocate's office and recreate them in the record <strong>keeping the same format</strong>, but shorten facts to fit the ~60-page limit.</div>
+    </div>
+
+    <!-- Client Interviews -->
+    <div class="cards-grid reveal">
+      <div class="card red">
+        <div class="card-tag tag-red">👤 Step 1 — Interview</div>
+        <h3>Civil Client Interview</h3>
+        <p>Write the full client interview in a structured Q&A or narrative format. Include client's background, nature of dispute, facts, reliefs sought, and advice given.</p>
+        <div class="card-meta">🏛️ Civil Matter</div>
+      </div>
+      <div class="card red">
+        <div class="card-tag tag-red">👤 Step 2 — Interview</div>
+        <h3>Criminal Client Interview</h3>
+        <p>Write the criminal client interview — accused or complainant side. Include facts of the case, FIR details, charges/offences, and preliminary advice given.</p>
+        <div class="card-meta">⚖️ Criminal Matter</div>
+      </div>
+    </div>
+
+    <!-- Civil Documents -->
+    <div class="doc-section open reveal" id="civil-docs">
+      <div class="doc-section-header" onclick="toggleSection('civil-docs')">
+        <h3>🏛️ Pre-Trial Techniques — Civil Matters <span class="doc-count count-gold">10 Documents</span></h3>
+        <div class="chevron">▾</div>
+      </div>
+      <div class="doc-list">
+        <div class="info-box info-gold" style="margin: 12px 0;">
+          <div class="icon">📂</div>
+          <div>Collect each document from the advocate's office. Copy the format exactly — shorten facts/unnecessary details to keep within the page limit.</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-num num-gold">1</div>
+          <div class="doc-name">Vakalatnama</div>
+          <div class="doc-tip">Authorization to appear</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-num num-gold">2</div>
+          <div class="doc-name">Legal Notice</div>
+          <div class="doc-tip">Demand notice before suit</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-num num-gold">3</div>
+          <div class="doc-name">Reply Notice</div>
+          <div class="doc-tip">Response to legal notice</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-num num-gold">4</div>
+          <div class="doc-name">Plaint</div>
+          <div class="doc-tip">Original civil petition</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-num num-gold">5</div>
+          <div class="doc-name">Written Statement</div>
+          <div class="doc-tip">Defendant's reply to plaint</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-num num-gold">6</div>
+          <div class="doc-name">Advocate Commissioner</div>
+          <div class="doc-tip">Commissioner application/report</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-num num-gold">7</div>
+          <div class="doc-name">Memorandum of Appeal (Civil)</div>
+          <div class="doc-tip">Civil appeal memo</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-num num-gold">8</div>
+          <div class="doc-name">Interlocutory Application</div>
+          <div class="doc-tip">Interim relief application</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-num num-gold">9</div>
+          <div class="doc-name">Interlocutory Order</div>
+          <div class="doc-tip">Order on interim application</div>
+        </div>
+        <div class="doc-item" style="border-bottom:none;">
+          <div class="doc-num num-gold">10</div>
+          <div class="doc-name">Judgement in Civil Case</div>
+          <div class="doc-tip">Final decree/judgement</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Criminal Documents -->
+    <div class="doc-section reveal" id="criminal-docs">
+      <div class="doc-section-header" onclick="toggleSection('criminal-docs')">
+        <h3>⚖️ Pre-Trial Techniques — Criminal Matters <span class="doc-count count-red">8 Documents</span></h3>
+        <div class="chevron">▾</div>
+      </div>
+      <div class="doc-list">
+        <div class="info-box info-red" style="margin: 12px 0;">
+          <div class="icon">📂</div>
+          <div>Same rule — collect from advocate's office, copy the format, shorten the facts to manage page count.</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-num num-red">1</div>
+          <div class="doc-name">Vakalatnama in Criminal Case</div>
+          <div class="doc-tip">For criminal proceedings</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-num num-red">2</div>
+          <div class="doc-name">Private Complaint</div>
+          <div class="doc-tip">Complaint before Magistrate</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-num num-red">3</div>
+          <div class="doc-name">Anticipatory Bail Application</div>
+          <div class="doc-tip">Under Section 438 CrPC</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-num num-red">4</div>
+          <div class="doc-name">Bail Application</div>
+          <div class="doc-tip">Regular bail petition</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-num num-red">5</div>
+          <div class="doc-name">Memo of Appeal (Criminal)</div>
+          <div class="doc-tip">Criminal appeal memo</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-num num-red">6</div>
+          <div class="doc-name">Power of Attorney</div>
+          <div class="doc-tip">Authority to act on behalf</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-num num-red">7</div>
+          <div class="doc-name">Promissory Note</div>
+          <div class="doc-tip">Negotiable instrument document</div>
+        </div>
+        <div class="doc-item" style="border-bottom:none;">
+          <div class="doc-num num-red">8</div>
+          <div class="doc-name">Judgement (Criminal)</div>
+          <div class="doc-tip">Final criminal judgement</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page count summary -->
+    <div class="structure-box reveal" style="margin-top:24px; border-color: rgba(224,90,109,0.2);">
+      <h3>📏 Key Reminder on Page Limits</h3>
+      <ul class="step-list">
+        <li><div class="step-dot dot-red2"></div><div>Record is limited to <strong class="hl">approximately 60 pages</strong> for this component.</div></li>
+        <li><div class="step-dot dot-red2"></div><div>Collect real documents from an <strong class="hl">advocate's office</strong> as reference.</div></li>
+        <li><div class="step-dot dot-red2"></div><div>Keep the <strong class="hl">same format</strong> as the original document — only shorten unnecessary facts and lengthy recitals.</div></li>
+        <li><div class="step-dot dot-gold2"></div><div>Start with the interviews, then do civil documents, then criminal documents — <strong class="hl">in order.</strong></div></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong style="color:var(--gold)">Varun Satheesh</strong> &nbsp;·&nbsp; Mar Gregorios College of Law &nbsp;·&nbsp; <a href="https://varunsatheesh.in" target="_blank">varunsatheesh.in</a></p>
+  <p style="margin-top:8px; font-size:11px; color:var(--text3)">Subject: Moot Court Observation, Court Work, Client Interview and Pre-Trial Preparations</p>
+</footer>
+
+<script>
+  // Toggle accordion sections
+  function toggleSection(id) {
+    const el = document.getElementById(id);
+    el.classList.toggle('open');
+  }
+
+  // Smooth scroll to section
+  function scrollTo(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav highlight on scroll
+  const sections = ['moot', 'courtwork', 'client'];
+  const navBtns = document.querySelectorAll('.nav-btn');
+  const colorMap = { moot: 'active-gold', courtwork: 'active-blue', client: 'active-red' };
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navBtns.forEach(btn => btn.className = 'nav-btn');
+        const id = entry.target.id;
+        const btn = [...navBtns].find(b => b.onclick?.toString().includes(id));
+        if (btn) btn.classList.add(colorMap[id]);
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) sectionObserver.observe(el);
+  });
+</script>
+
+</body>
+</html>

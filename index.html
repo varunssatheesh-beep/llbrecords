@@ -1732,7 +1732,8 @@
 
 <script>
   // Countdown Timer
-  const NTFY_TOPIC = 'varun-llb-records-2026';
+  const TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN_HERE';
+  const TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID_HERE';
   const VISITOR_KEY = 'llb_visitor_v1';
 
   // ====== VISITOR GATE ======
@@ -1757,17 +1758,13 @@
     const visitor = { name, roll, time: new Date().toISOString(), visits: 1 };
     localStorage.setItem(VISITOR_KEY, JSON.stringify(visitor));
 
-    // Send ntfy notification
-    const msg = `👋 ${name}${roll ? ' (' + roll + ')' : ''} just opened your LLB Records page!\n🕒 ${new Date().toLocaleString('en-IN', {timeZone:'Asia/Kolkata'})}`;
-    fetch('https://ntfy.sh/' + NTFY_TOPIC, {
-      method: 'POST',
-      headers: {
-        'Title': 'New Visitor — LLB Records ⚖️',
-        'Tags': 'eyes,mortar_board',
-        'Priority': 'default'
-      },
-      body: msg
-    }).catch(() => {}); // silent fail
+    // Send Telegram notification
+    if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID && TELEGRAM_BOT_TOKEN !== 'YOUR_BOT_TOKEN_HERE') {
+      const msg = encodeURIComponent(`👋 <b>New Visitor Logged In!</b>\n\n👤 <b>Name:</b> ${name}\n🔢 <b>Roll:</b> ${roll ? roll : 'N/A'}\n🕒 <b>Time:</b> ${new Date().toLocaleString('en-IN', {timeZone:'Asia/Kolkata'})}`);
+      const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${msg}&parse_mode=HTML`;
+      
+      fetch(url).catch(() => {}); // silent fail
+    }
 
     closeGate();
   }

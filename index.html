@@ -723,6 +723,301 @@
 
     .deadline-date strong { color: var(--crimson2); }
 
+    /* ====== CHECKLIST PANEL ====== */
+    .cl-fab {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      background: linear-gradient(135deg, #c9a84c, #f0c96c);
+      color: #0a0c14;
+      border: none;
+      border-radius: 50px;
+      padding: 14px 22px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 32px rgba(201,168,76,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.3px;
+    }
+
+    .cl-fab:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 14px 40px rgba(201,168,76,0.5);
+    }
+
+    .cl-fab-badge {
+      background: #e05a6d;
+      color: #fff;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 10px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 2px;
+    }
+
+    .cl-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .cl-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .cl-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 420px;
+      max-width: 100vw;
+      background: #111420;
+      border-left: 1px solid var(--border2);
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+    }
+
+    .cl-panel.open {
+      transform: translateX(0);
+    }
+
+    .cl-header {
+      padding: 22px 24px 18px;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .cl-header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .cl-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cl-close {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border2);
+      border-radius: 8px;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      color: var(--text2);
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .cl-close:hover { background: rgba(255,255,255,0.1); }
+
+    .cl-progress-wrap {
+      background: rgba(255,255,255,0.05);
+      border-radius: 8px;
+      height: 8px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+
+    .cl-progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      border-radius: 8px;
+      transition: width 0.4s ease;
+      width: 0%;
+    }
+
+    .cl-progress-label {
+      font-size: 12px;
+      color: var(--text3);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .cl-progress-label span { color: var(--gold2); font-weight: 600; }
+
+    .cl-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .cl-action-btn {
+      flex: 1;
+      padding: 7px 12px;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border2);
+      background: transparent;
+      color: var(--text2);
+      transition: all 0.2s;
+    }
+
+    .cl-action-btn:hover { background: rgba(255,255,255,0.06); color: #fff; }
+    .cl-action-btn.danger:hover { background: rgba(224,90,109,0.1); color: var(--crimson2); border-color: rgba(224,90,109,0.3); }
+
+    .cl-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 24px 24px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border2) transparent;
+    }
+
+    .cl-group {
+      margin-bottom: 24px;
+    }
+
+    .cl-group-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cl-group-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .cl-group-count {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+
+    .gtitle-gold { color: var(--gold2); }
+    .gcount-gold { background: var(--gold-glow); color: var(--gold2); }
+    .gtitle-blue { color: var(--blue2); }
+    .gcount-blue { background: var(--blue-glow); color: var(--blue2); }
+    .gtitle-red { color: var(--crimson2); }
+    .gcount-red { background: var(--crimson-glow); color: var(--crimson2); }
+
+    .cl-sub-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin: 12px 0 6px;
+    }
+
+    .cl-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 9px 12px;
+      border-radius: 10px;
+      margin-bottom: 4px;
+      cursor: pointer;
+      transition: background 0.15s;
+      user-select: none;
+    }
+
+    .cl-item:hover { background: rgba(255,255,255,0.04); }
+    .cl-item.checked { opacity: 0.55; }
+
+    .cl-checkbox {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      border: 2px solid var(--border2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 11px;
+      transition: all 0.2s;
+      background: transparent;
+    }
+
+    .cl-item.checked .cl-checkbox {
+      background: var(--emerald);
+      border-color: var(--emerald);
+      color: #fff;
+    }
+
+    .cl-item-text {
+      font-size: 13px;
+      color: var(--text);
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .cl-item.checked .cl-item-text {
+      text-decoration: line-through;
+      color: var(--text3);
+    }
+
+    .cl-mini-progress {
+      height: 3px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 4px;
+      margin: 6px 0 14px;
+      overflow: hidden;
+    }
+
+    .cl-mini-bar {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.4s ease;
+    }
+
+    .mbar-gold { background: var(--gold); }
+    .mbar-blue { background: var(--blue2); }
+    .mbar-red { background: var(--crimson2); }
+
+    .cl-done-banner {
+      text-align: center;
+      padding: 16px;
+      background: rgba(63,191,130,0.08);
+      border: 1px solid rgba(63,191,130,0.25);
+      border-radius: 12px;
+      color: var(--emerald2);
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 12px;
+      display: none;
+    }
+
     /* ====== SCROLLING TICKER ====== */
     .ticker-wrap {
       width: 100%;
@@ -1308,7 +1603,371 @@
     const el = document.getElementById(id);
     if (el) sectionObserver.observe(el);
   });
+
+  // ====== CHECKLIST SYSTEM ======
+  const CL_KEY = 'llb_checklist_v1';
+  let checked = JSON.parse(localStorage.getItem(CL_KEY) || '{}');
+
+  function toggleChecklist() {
+    const panel = document.getElementById('cl-panel');
+    const overlay = document.getElementById('cl-overlay');
+    panel.classList.toggle('open');
+    overlay.classList.toggle('open');
+  }
+
+  function toggleItem(el) {
+    const id = el.dataset.id;
+    checked[id] = !checked[id];
+    saveAndRender();
+  }
+
+  function checkAll() {
+    document.querySelectorAll('.cl-item').forEach(el => checked[el.dataset.id] = true);
+    saveAndRender();
+  }
+
+  function uncheckAll() {
+    document.querySelectorAll('.cl-item').forEach(el => checked[el.dataset.id] = false);
+    saveAndRender();
+  }
+
+  function resetChecklist() {
+    if (confirm('Reset all checklist progress?')) {
+      checked = {};
+      saveAndRender();
+    }
+  }
+
+  function saveAndRender() {
+    localStorage.setItem(CL_KEY, JSON.stringify(checked));
+    renderChecklist();
+  }
+
+  function renderChecklist() {
+    const allItems = document.querySelectorAll('.cl-item');
+    let total = 0, done = 0;
+
+    const groups = { moot: { total: 0, done: 0 }, court: { total: 0, done: 0 }, client: { total: 0, done: 0 } };
+
+    allItems.forEach(el => {
+      const id = el.dataset.id;
+      const grp = el.dataset.group;
+      const isChecked = !!checked[id];
+      const cb = el.querySelector('.cl-checkbox');
+
+      el.classList.toggle('checked', isChecked);
+      cb.textContent = isChecked ? '✓' : '';
+
+      total++;
+      groups[grp].total++;
+      if (isChecked) { done++; groups[grp].done++; }
+    });
+
+    // Main progress
+    const pct = total ? Math.round((done / total) * 100) : 0;
+    document.getElementById('cl-main-bar').style.width = pct + '%';
+    document.getElementById('cl-main-label').textContent = done + ' / ' + total + ' done';
+
+    // FAB badge — show remaining
+    const remaining = total - done;
+    const badge = document.getElementById('cl-fab-badge');
+    badge.textContent = remaining;
+    badge.style.background = remaining === 0 ? 'var(--emerald)' : '#e05a6d';
+
+    // Group progress
+    ['moot', 'court', 'client'].forEach(grp => {
+      const g = groups[grp];
+      const gpct = g.total ? Math.round((g.done / g.total) * 100) : 0;
+      document.getElementById('mb-' + grp).style.width = gpct + '%';
+      document.getElementById('gc-' + grp).textContent = g.done + '/' + g.total;
+    });
+
+    // Done banner
+    document.getElementById('cl-done-banner').style.display = (done === total && total > 0) ? 'block' : 'none';
+  }
+
+  // Init checklist on load
+  renderChecklist();
+
 </script>
+
+<!-- CHECKLIST FAB BUTTON -->
+<button class="cl-fab" id="cl-fab-btn" onclick="toggleChecklist()">
+  📋 My Checklist <span class="cl-fab-badge" id="cl-fab-badge">0</span>
+</button>
+
+<!-- CHECKLIST OVERLAY -->
+<div class="cl-overlay" id="cl-overlay" onclick="toggleChecklist()"></div>
+
+<!-- CHECKLIST PANEL -->
+<div class="cl-panel" id="cl-panel">
+  <div class="cl-header">
+    <div class="cl-header-top">
+      <div class="cl-title">📋 Record Completion Checklist</div>
+      <button class="cl-close" onclick="toggleChecklist()">✕</button>
+    </div>
+    <div class="cl-progress-wrap">
+      <div class="cl-progress-bar" id="cl-main-bar"></div>
+    </div>
+    <div class="cl-progress-label">
+      <span>Overall Progress</span>
+      <span id="cl-main-label">0 / 0 done</span>
+    </div>
+    <div class="cl-actions">
+      <button class="cl-action-btn" onclick="checkAll()">✅ Check All</button>
+      <button class="cl-action-btn" onclick="uncheckAll()">↺ Uncheck All</button>
+      <button class="cl-action-btn danger" onclick="resetChecklist()">🗑 Reset</button>
+    </div>
+  </div>
+
+  <div class="cl-body" id="cl-body">
+
+    <!-- PART 1: MOOT COURT -->
+    <div class="cl-group" id="grp-moot">
+      <div class="cl-group-header">
+        <div class="cl-group-title gtitle-gold">⚖️ Part 1 — Moot Court</div>
+        <div class="cl-group-count gcount-gold" id="gc-moot">0/0</div>
+      </div>
+      <div class="cl-mini-progress"><div class="cl-mini-bar mbar-gold" id="mb-moot" style="width:0%"></div></div>
+
+      <div class="cl-sub-label">Participated Moots</div>
+      <div class="cl-item" data-id="m1" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">9th Semester Moot — Detailed Report (~8 pages)</div>
+      </div>
+      <div class="cl-item" data-id="m2" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">10th Semester Moot — Detailed Report (~8 pages)</div>
+      </div>
+
+      <div class="cl-sub-label">Judged Moot</div>
+      <div class="cl-item" data-id="m3" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Latest Judged Moot — Written as a Judgement (~8 pages)</div>
+      </div>
+
+      <div class="cl-sub-label">Observed Moots (FIRAC — no Rules section)</div>
+      <div class="cl-item" data-id="m4" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Observed Moot 1 (4–6 pages)</div>
+      </div>
+      <div class="cl-item" data-id="m5" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Observed Moot 2 (4–6 pages)</div>
+      </div>
+      <div class="cl-item" data-id="m6" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Observed Moot 3 (4–6 pages)</div>
+      </div>
+      <div class="cl-item" data-id="m7" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Observed Moot 4 (4–6 pages)</div>
+      </div>
+      <div class="cl-item" data-id="m8" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Observed Moot 5 (4–6 pages)</div>
+      </div>
+      <div class="cl-item" data-id="m9" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Observed Moot 6 (4–6 pages)</div>
+      </div>
+      <div class="cl-item" data-id="m10" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Observed Moot 7 (4–6 pages)</div>
+      </div>
+      <div class="cl-item" data-id="m11" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Observed Moot 8 (4–6 pages)</div>
+      </div>
+      <div class="cl-item" data-id="m12" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Observed Moot 9 (4–6 pages)</div>
+      </div>
+      <div class="cl-item" data-id="m13" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Observed Moot 10 (4–6 pages)</div>
+      </div>
+      <div class="cl-item" data-id="m14" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Observed Moot 11 (4–6 pages)</div>
+      </div>
+      <div class="cl-item" data-id="m15" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Observed Moot 12 (4–6 pages)</div>
+      </div>
+      <div class="cl-item" data-id="m16" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Observed Moot 13 (4–6 pages)</div>
+      </div>
+      <div class="cl-item" data-id="m17" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Observed Moot 14 (4–6 pages)</div>
+      </div>
+      <div class="cl-item" data-id="m18" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Observed Moot 15 (4–6 pages)</div>
+      </div>
+      <div class="cl-item" data-id="m19" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Observed Moot 16 (4–6 pages)</div>
+      </div>
+      <div class="cl-item" data-id="m20" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Observed Moot 17 (4–6 pages)</div>
+      </div>
+      <div class="cl-item" data-id="m21" data-group="moot" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Observed Moot 18 (4–6 pages)</div>
+      </div>
+    </div>
+
+    <!-- PART 2: COURT WORK -->
+    <div class="cl-group" id="grp-court">
+      <div class="cl-group-header">
+        <div class="cl-group-title gtitle-blue">🏛️ Part 2 — Court Work</div>
+        <div class="cl-group-count gcount-blue" id="gc-court">0/0</div>
+      </div>
+      <div class="cl-mini-progress"><div class="cl-mini-bar mbar-blue" id="mb-court" style="width:0%"></div></div>
+
+      <div class="cl-sub-label">Day-wise Observations (4 pages each)</div>
+      <div class="cl-item" data-id="c1" data-group="court" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">Day 1 — Court Observation</div>
+      </div>
+      <div class="cl-item" data-id="c2" data-group="court" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">Day 2 — Court Observation</div>
+      </div>
+      <div class="cl-item" data-id="c3" data-group="court" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">Day 3 — Court Observation</div>
+      </div>
+      <div class="cl-item" data-id="c4" data-group="court" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">Day 4 — Court Observation</div>
+      </div>
+      <div class="cl-item" data-id="c5" data-group="court" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">Day 5 — Court Observation</div>
+      </div>
+      <div class="cl-item" data-id="c6" data-group="court" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">Day 6 — Court Observation</div>
+      </div>
+      <div class="cl-item" data-id="c7" data-group="court" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">Day 7 — Court Observation</div>
+      </div>
+      <div class="cl-item" data-id="c8" data-group="court" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">Day 8 — Court Observation</div>
+      </div>
+      <div class="cl-item" data-id="c9" data-group="court" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">Day 9 — Court Observation</div>
+      </div>
+      <div class="cl-item" data-id="c10" data-group="court" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">Day 10 — Court Observation</div>
+      </div>
+      <div class="cl-item" data-id="c11" data-group="court" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">Day 11 — Court Observation</div>
+      </div>
+      <div class="cl-item" data-id="c12" data-group="court" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">Day 12 — Court Observation</div>
+      </div>
+      <div class="cl-item" data-id="c13" data-group="court" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">Day 13 — Court Observation</div>
+      </div>
+      <div class="cl-item" data-id="c14" data-group="court" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">Day 14 — Court Observation</div>
+      </div>
+      <div class="cl-item" data-id="c15" data-group="court" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">Day 15 — Court Observation</div>
+      </div>
+
+      <div class="cl-sub-label">Full Trial Reports</div>
+      <div class="cl-item" data-id="c16" data-group="court" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Full Civil Trial Report (from filing to date of visit)</div>
+      </div>
+      <div class="cl-item" data-id="c17" data-group="court" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Full Criminal Trial Report (from FIR to date of visit)</div>
+      </div>
+    </div>
+
+    <!-- PART 3: CLIENT INTERVIEW & PRE-TRIAL -->
+    <div class="cl-group" id="grp-client">
+      <div class="cl-group-header">
+        <div class="cl-group-title gtitle-red">📋 Part 3 — Client Interview &amp; Pre-Trial</div>
+        <div class="cl-group-count gcount-red" id="gc-client">0/0</div>
+      </div>
+      <div class="cl-mini-progress"><div class="cl-mini-bar mbar-red" id="mb-client" style="width:0%"></div></div>
+
+      <div class="cl-sub-label">Client Interviews</div>
+      <div class="cl-item" data-id="p1" data-group="client" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Civil Client Interview</div>
+      </div>
+      <div class="cl-item" data-id="p2" data-group="client" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-text">Criminal Client Interview</div>
+      </div>
+
+      <div class="cl-sub-label">Civil Documents (Pre-Trial Techniques)</div>
+      <div class="cl-item" data-id="p3" data-group="client" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">1. Vakalatnama</div>
+      </div>
+      <div class="cl-item" data-id="p4" data-group="client" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">2. Legal Notice</div>
+      </div>
+      <div class="cl-item" data-id="p5" data-group="client" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">3. Reply Notice</div>
+      </div>
+      <div class="cl-item" data-id="p6" data-group="client" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">4. Plaint</div>
+      </div>
+      <div class="cl-item" data-id="p7" data-group="client" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">5. Written Statement</div>
+      </div>
+      <div class="cl-item" data-id="p8" data-group="client" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">6. Advocate Commissioner</div>
+      </div>
+      <div class="cl-item" data-id="p9" data-group="client" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">7. Memorandum of Appeal (Civil)</div>
+      </div>
+      <div class="cl-item" data-id="p10" data-group="client" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">8. Interlocutory Application</div>
+      </div>
+      <div class="cl-item" data-id="p11" data-group="client" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">9. Interlocutory Order</div>
+      </div>
+      <div class="cl-item" data-id="p12" data-group="client" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">10. Judgement in Civil Case</div>
+      </div>
+
+      <div class="cl-sub-label">Criminal Documents</div>
+      <div class="cl-item" data-id="p13" data-group="client" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">1. Vakalatnama in Criminal Case</div>
+      </div>
+      <div class="cl-item" data-id="p14" data-group="client" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">2. Private Complaint</div>
+      </div>
+      <div class="cl-item" data-id="p15" data-group="client" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">3. Anticipatory Bail Application</div>
+      </div>
+      <div class="cl-item" data-id="p16" data-group="client" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">4. Bail Application</div>
+      </div>
+      <div class="cl-item" data-id="p17" data-group="client" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">5. Memo of Appeal (Criminal)</div>
+      </div>
+      <div class="cl-item" data-id="p18" data-group="client" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">6. Power of Attorney</div>
+      </div>
+      <div class="cl-item" data-id="p19" data-group="client" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">7. Promissory Note</div>
+      </div>
+      <div class="cl-item" data-id="p20" data-group="client" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div><div class="cl-item-text">8. Judgement (Criminal)</div>
+      </div>
+    </div>
+
+    <div class="cl-done-banner" id="cl-done-banner">🎉 All tasks complete! Record ready for submission!</div>
+
+  </div>
+</div>
 
 </body>
 </html>

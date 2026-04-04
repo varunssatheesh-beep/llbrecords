@@ -722,9 +722,146 @@
     }
 
     .deadline-date strong { color: var(--crimson2); }
+
+    /* ====== SCROLLING TICKER ====== */
+    .ticker-wrap {
+      width: 100%;
+      background: linear-gradient(90deg, rgba(201,168,76,0.1), rgba(201,168,76,0.06), rgba(201,168,76,0.1));
+      border-bottom: 1px solid rgba(201,168,76,0.25);
+      padding: 10px 0;
+      overflow: hidden;
+      position: relative;
+      z-index: 200;
+    }
+
+    .ticker-wrap::before,
+    .ticker-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 80px;
+      height: 100%;
+      z-index: 2;
+    }
+
+    .ticker-wrap::before {
+      left: 0;
+      background: linear-gradient(90deg, var(--bg), transparent);
+    }
+
+    .ticker-wrap::after {
+      right: 0;
+      background: linear-gradient(270deg, var(--bg), transparent);
+    }
+
+    .ticker-content {
+      display: flex;
+      width: max-content;
+      animation: ticker-scroll 38s linear infinite;
+    }
+
+    .ticker-content:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 32px;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--gold2);
+      white-space: nowrap;
+      letter-spacing: 0.2px;
+    }
+
+    .ticker-item .ticker-sep {
+      color: rgba(201,168,76,0.4);
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    .ticker-item .ticker-star {
+      color: var(--gold);
+      font-size: 10px;
+    }
+
+    .ticker-highlight {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .ticker-warn {
+      color: var(--crimson2);
+      font-weight: 600;
+    }
+
+    .ticker-link {
+      color: var(--blue2);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(122,173,255,0.4);
+      padding-bottom: 1px;
+    }
+
+    .ticker-link:hover { border-bottom-color: var(--blue2); }
   </style>
 </head>
 <body>
+
+<!-- SCROLLING TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-content">
+    <!-- First copy -->
+    <div class="ticker-item">
+      <span class="ticker-star">✦</span>
+      <span>This website is <span class="ticker-highlight">Proudly Built by Varun Satheesh</span> for addressing the concerns regarding the practical training record</span>
+    </div>
+    <div class="ticker-item"><span class="ticker-sep">|</span></div>
+    <div class="ticker-item">
+      <span class="ticker-star">⚠</span>
+      <span class="ticker-warn">This format is an approximate of what Varun is doing and can vary upon different guides allotted</span>
+    </div>
+    <div class="ticker-item"><span class="ticker-sep">|</span></div>
+    <div class="ticker-item">
+      <span class="ticker-star">✦</span>
+      <span>Always <span class="ticker-highlight">follow the instructions your guide gave</span> — Varun will not be responsible for any issues</span>
+    </div>
+    <div class="ticker-item"><span class="ticker-sep">|</span></div>
+    <div class="ticker-item">
+      <span class="ticker-star">📧</span>
+      <span>Doubts? Mail: <a class="ticker-link" href="mailto:finalyearrecords@varunsatheesh.in">finalyearrecords@varunsatheesh.in</a> &nbsp;or contact <span class="ticker-highlight">Ramachandran Sir</span> / College Office</span>
+    </div>
+    <div class="ticker-item"><span class="ticker-sep">|</span></div>
+    <!-- Duplicate copy for seamless loop -->
+    <div class="ticker-item">
+      <span class="ticker-star">✦</span>
+      <span>This website is <span class="ticker-highlight">Proudly Built by Varun Satheesh</span> for addressing the concerns regarding the practical training record</span>
+    </div>
+    <div class="ticker-item"><span class="ticker-sep">|</span></div>
+    <div class="ticker-item">
+      <span class="ticker-star">⚠</span>
+      <span class="ticker-warn">This format is an approximate of what Varun is doing and can vary upon different guides allotted</span>
+    </div>
+    <div class="ticker-item"><span class="ticker-sep">|</span></div>
+    <div class="ticker-item">
+      <span class="ticker-star">✦</span>
+      <span>Always <span class="ticker-highlight">follow the instructions your guide gave</span> — Varun will not be responsible for any issues</span>
+    </div>
+    <div class="ticker-item"><span class="ticker-sep">|</span></div>
+    <div class="ticker-item">
+      <span class="ticker-star">📧</span>
+      <span>Doubts? Mail: <a class="ticker-link" href="mailto:finalyearrecords@varunsatheesh.in">finalyearrecords@varunsatheesh.in</a> &nbsp;or contact <span class="ticker-highlight">Ramachandran Sir</span> / College Office</span>
+    </div>
+    <div class="ticker-item"><span class="ticker-sep">|</span></div>
+  </div>
+</div>
 
 <!-- HEADER -->
 <header>

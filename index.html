@@ -1757,6 +1757,7 @@
 
     const visitor = { name, roll, time: new Date().toISOString(), visits: 1 };
     localStorage.setItem(VISITOR_KEY, JSON.stringify(visitor));
+    initChecklistData(); // Load checklist right after generating profile
 
     // Send Telegram notification
     if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID && TELEGRAM_BOT_TOKEN !== 'YOUR_BOT_TOKEN_HERE') {
@@ -1793,11 +1794,8 @@
   }
 
   function logoutGate() {
-    if (!confirm('Switch user? This will clear your session.')) return;
+    if (!confirm('Switch user? You can come back using your exact name to restore your progress!')) return;
     localStorage.removeItem(VISITOR_KEY);
-    // Don't clear the checklist, keep it for the new user, or clear it if you want. Let's clear it.
-    localStorage.removeItem(CL_KEY);
-    checked = {};
     location.reload();
   }
 
@@ -1896,8 +1894,13 @@
   });
 
   // ====== CHECKLIST SYSTEM ======
-  const CL_KEY = 'llb_checklist_v1';
-  let checked = JSON.parse(localStorage.getItem(CL_KEY) || '{}');
+  function getCLKey() {
+    const raw = localStorage.getItem(VISITOR_KEY);
+    if (!raw) return 'llb_checklist_v1_guest';
+    const v = JSON.parse(raw);
+    return 'llb_checklist_v1_' + v.name.replace(/\s+/g, '_');
+  }
+  let checked = {};
 
   function toggleChecklist() {
     const panel = document.getElementById('cl-panel');
@@ -1930,7 +1933,7 @@
   }
 
   function saveAndRender() {
-    localStorage.setItem(CL_KEY, JSON.stringify(checked));
+    localStorage.setItem(getCLKey(), JSON.stringify(checked));
     renderChecklist();
   }
 
@@ -1978,7 +1981,7 @@
   }
   // Init checklist when a user is confirmed
   function initChecklistData() {
-    checked = JSON.parse(localStorage.getItem(CL_KEY) || '{}');
+    checked = JSON.parse(localStorage.getItem(getCLKey()) || '{}');
     renderChecklist();
   }
   

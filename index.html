@@ -1798,7 +1798,9 @@
   function logoutGate() {
     if (!confirm('Switch user? This will clear your session.')) return;
     localStorage.removeItem(VISITOR_KEY);
-    localStorage.removeItem('llb_checklist_v1');
+    // Don't clear the checklist, keep it for the new user, or clear it if you want. Let's clear it.
+    localStorage.removeItem(CL_KEY);
+    checked = {};
     location.reload();
   }
 
@@ -1977,9 +1979,14 @@
     // Done banner
     document.getElementById('cl-done-banner').style.display = (done === total && total > 0) ? 'block' : 'none';
   }
-
-  // Init checklist on load
-  renderChecklist();
+  // Init checklist when a user is confirmed
+  function initChecklistData() {
+    checked = JSON.parse(localStorage.getItem(CL_KEY) || '{}');
+    renderChecklist();
+  }
+  
+  // Also call initChecklistData from initGate when user is found, and from submitGate when created.
+  initChecklistData();
 
 </script>
 

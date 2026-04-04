@@ -1734,7 +1734,10 @@
   // Countdown Timer
   const TELEGRAM_BOT_TOKEN = '8407682206:AAEeuf51gHxmYYANSIkct3pIrDdsoYMItjg';
   const TELEGRAM_CHAT_ID = '8010675502';
+  const SUPABASE_URL = 'https://iokqorrklniunxomjwai.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlva3FvcnJrbG5pdW54b21qd2FpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUzMTcwOTgsImV4cCI6MjA5MDg5MzA5OH0.pgPDafpAHZ2bHD1c0CeptrkORnn3QI1ycTz8qpo85RQ';
   const VISITOR_KEY = 'llb_visitor_v1';
+
 
   // ====== VISITOR GATE ======
   function submitGate() {
@@ -1935,6 +1938,22 @@
   function saveAndRender() {
     localStorage.setItem(getCLKey(), JSON.stringify(checked));
     renderChecklist();
+    
+    // Cloud Sync to Supabase in the background
+    const raw = localStorage.getItem(VISITOR_KEY);
+    if(raw) {
+       const v = JSON.parse(raw);
+       fetch(`${SUPABASE_URL}/rest/v1/user_progress`, {
+         method: 'POST',
+         headers: {
+           'apikey': SUPABASE_KEY,
+           'Authorization': `Bearer ${SUPABASE_KEY}`,
+           'Content-Type': 'application/json',
+           'Prefer': 'resolution=merge-duplicates'
+         },
+         body: JSON.stringify({ username: v.name, roll: v.roll, checklist: checked })
+       }).catch(()=>{ /* silent network fail */ });
+    }
   }
 
   function renderChecklist() {
@@ -1980,9 +1999,29 @@
     document.getElementById('cl-done-banner').style.display = (done === total && total > 0) ? 'block' : 'none';
   }
   // Init checklist when a user is confirmed
-  function initChecklistData() {
-    checked = JSON.parse(localStorage.getItem(getCLKey()) || '{}');
+  async function initChecklistData() {
+    const key = getCLKey();
+    checked = JSON.parse(localStorage.getItem(key) || '{}');
     renderChecklist();
+
+    const raw = localStorage.getItem(VISITOR_KEY);
+    if (raw) {
+       const v = JSON.parse(raw);
+       try {
+         // Try fetching latest cloud state
+         const res = await fetch(`${SUPABASE_URL}/rest/v1/user_progress?username=eq.${encodeURIComponent(v.name)}`, {
+           headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
+         });
+         if(res.ok) {
+           const data = await res.json();
+           if(data && data.length > 0 && data[0].checklist) {
+              checked = data[0].checklist;
+              localStorage.setItem(key, JSON.stringify(checked)); // Update local cache
+              renderChecklist();
+           }
+         }
+       } catch(e) { }
+    }
   }
   
   // Also call initChecklistData from initGate when user is found, and from submitGate when created.
